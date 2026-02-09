@@ -10,3 +10,6 @@
 /SPEED_OPTIMIZATION.md
 /test_selenium.py
 /__pycache__
+proxies.txt
+proxies_fast.txt
+high_discount_log.txt

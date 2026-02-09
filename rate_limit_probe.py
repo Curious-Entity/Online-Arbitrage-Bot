@@ -34,8 +34,9 @@ RESELLER_LIMIT = 10                     # items returned per request (smaller = 
 
 def read_roblosecurity_and_asset_id():
     text = Path("snipe.py").read_text(encoding="utf-8")
-    cookie_match = re.search(r"'\\.ROBLOSECURITY'\\s*:\\s*'([^']+)'", text)
-    asset_match = re.search(r"'asset_id'\\s*:\\s*(\\d+)", text)
+    # Match: '.ROBLOSECURITY': '...'
+    cookie_match = re.search(r"'\.ROBLOSECURITY'\s*:\s*'([^']+)'", text)
+    asset_match = re.search(r"'asset_id'\s*:\s*(\d+)", text)
     if not cookie_match:
         raise SystemExit("ROBLOSECURITY not found in snipe.py")
     if not asset_match:
