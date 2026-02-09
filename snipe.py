@@ -74,12 +74,12 @@ RATE_LIMIT_BACKOFF_BASE_SECONDS = 0.05
 RATE_LIMIT_BACKOFF_MAX_SECONDS = 0.10
 RATE_LIMIT_BACKOFF_JITTER = 0.01
 RESELLER_CONNECT_TIMEOUT = 0.50
-RESELLER_READ_TIMEOUT = 0.50
+RESELLER_READ_TIMEOUT = 0.75
 RESELLER_TIMEOUT = (RESELLER_CONNECT_TIMEOUT, RESELLER_READ_TIMEOUT)
 # Proxy selection for the high-rate reseller polling path.
 # "rotate" spreads load across the pool to reduce 429s at aggressive poll rates.
 RESELLER_PROXY_STRATEGY = "rotate_on_429"  # off | sticky | rotate | rotate_on_429
-RESELLER_ROTATE_EVERY = 50  # Rotate reseller proxy every N requests when using rotate/rotate_on_429
+RESELLER_ROTATE_EVERY = 40  # Rotate reseller proxy every N requests when using rotate/rotate_on_429
 PURCHASE_USE_PROXY = False  # Purchase is latency-sensitive; direct can be faster than going through a proxy.
 PURCHASE_TIMEOUT = 2  # Purchase can be a bit slower than polling; don't cut it off too aggressively.
 
